@@ -14,6 +14,7 @@ namespace Lab1
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -24,29 +25,48 @@ namespace Lab1
         {
             if (dataGridView1 != null)
             {
-                if (this.dataGridView1 != null)
+                // Очищаем старые столбцы перед добавлением новых
+                dataGridView1.Columns.Clear();
+
+                // Код лексемы
+                this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
                 {
-                    this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
-                    {
-                        Name = "LineNumber",
-                        HeaderText = "№ строки",
-                        Width = 100
-                    });
+                    Name = "TokenCode",
+                    HeaderText = "Код лексемы",
+                    Width = 100
+                });
 
-                    this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
-                    {
-                        Name = "ErrorCode",
-                        HeaderText = "Код ошибки",
-                        Width = 150
-                    });
+                // Тип лексемы (ключевое слово, идентификатор, оператор и т. д.)
+                this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+                {
+                    Name = "TokenType",
+                    HeaderText = "Тип лексемы",
+                    Width = 150
+                });
 
-                    this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
-                    {
-                        Name = "ErrorMessage",
-                        HeaderText = "Сообщение об ошибке",
-                        AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-                    });
-                }
+                // Сама лексема
+                this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+                {
+                    Name = "TokenValue",
+                    HeaderText = "Лексема",
+                    AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+                });
+
+                // Номер строки
+                this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+                {
+                    Name = "LineNumber",
+                    HeaderText = "Номер строки",
+                    Width = 50
+                });
+
+                // Позиция в строке
+                this.dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+                {
+                    Name = "Position",
+                    HeaderText = "Позиция",
+                    Width = 110
+                });
             }
         }
 
@@ -91,108 +111,6 @@ namespace Lab1
             }
         }
 
-
-        //private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    SaveFileDialog saveFileDialog = new SaveFileDialog();
-        //    saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
-        //    saveFileDialog.Title = "Создать новый файл";
-        //    saveFileDialog.FileName = "Новый файл.txt";
-
-        //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        try
-        //        {
-        //            // Создание пустого файла
-        //            System.IO.File.WriteAllText(saveFileDialog.FileName, string.Empty);
-        //            MessageBox.Show("Файл успешно создан!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Ошибка при создании файла: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
-        //private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    // Создаём новую вкладку
-        //    TabPage newTab = new TabPage("Новый документ");
-
-        //    // Создаём SplitContainer для размещения двух RichTextBox
-        //    SplitContainer splitContainer = new SplitContainer
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        Orientation = Orientation.Horizontal, // Вертикальное деление
-        //        SplitterDistance = 55 // Высота верхнего RichTextBox
-        //    };
-
-        //    // Создаём первый RichTextBox (верхний)
-        //    RichTextBox richTextBox1 = new RichTextBox
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        Tag = null // Новый файл не имеет пути
-        //    };
-
-        //    // Создаём второй RichTextBox (нижний, только для чтения)
-        //    RichTextBox richTextBox2 = new RichTextBox
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        ReadOnly = true // Запрещаем редактирование
-        //    };
-
-        //    // Добавляем RichTextBox в SplitContainer
-        //    splitContainer.Panel1.Controls.Add(richTextBox1);
-        //    splitContainer.Panel2.Controls.Add(richTextBox2);
-
-        //    // Добавляем SplitContainer во вкладку
-        //    newTab.Controls.Add(splitContainer);
-        //    tabControl1.TabPages.Add(newTab);
-        //    tabControl1.SelectedTab = newTab; // Переключаемся на новую вкладку
-        //}
-
-
-        //private void OpenFileInNewTab(string filePath)
-        //{
-        //    string fileContent = File.ReadAllText(filePath);
-        //    string fileName = Path.GetFileName(filePath);
-
-        //    // Создаём новую вкладку
-        //    TabPage newTab = new TabPage(fileName);
-
-        //    // Создаём SplitContainer для размещения двух RichTextBox
-        //    SplitContainer splitContainer = new SplitContainer
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        Orientation = Orientation.Horizontal, // Вертикальное деление
-        //        SplitterDistance = 55 // Высота верхнего RichTextBox
-        //    };
-
-        //    // Создаём первый RichTextBox (верхний)
-        //    RichTextBox richTextBox1 = new RichTextBox
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        Text = fileContent,
-        //        Tag = filePath
-        //    };
-
-        //    // Создаём второй RichTextBox (нижний)
-        //    RichTextBox richTextBox2 = new RichTextBox
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        ReadOnly = true
-        //    };
-
-        //    // Добавляем RichTextBox в SplitContainer
-        //    splitContainer.Panel1.Controls.Add(richTextBox1);
-        //    splitContainer.Panel2.Controls.Add(richTextBox2);
-
-        //    // Добавляем SplitContainer во вкладку
-        //    newTab.Controls.Add(splitContainer);
-        //    tabControl1.TabPages.Add(newTab);
-        //    tabControl1.SelectedTab = newTab; // Переключаемся на новую вкладку
-        //}
-
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateNewTab(null, "Новый документ", "");
@@ -235,39 +153,9 @@ namespace Lab1
                 Name = "richTextBox1"
             };
 
-
-            //// Создаём второй RichTextBox (нижний, только для чтения)
-            //RichTextBox richTextBox2 = new RichTextBox
-            //{
-            //    Dock = DockStyle.Fill,
-            //    BackColor = Color.AntiqueWhite,
-            //    ReadOnly = true, // Запрещаем редактирование
-            //    Name = "richTextBox2"
-            //};
-
-            //// Добавляем RichTextBox в SplitContainer
-            //splitContainer.Panel1.Controls.Add(richTextBox1);
-            //splitContainer.Panel2.Controls.Add(richTextBox2);
-
-            //// Добавляем SplitContainer во вкладку
-            //newTab.Controls.Add(splitContainer);
-
-            //// Добавляем вкладку в TabControl
-            //tabControl1.TabPages.Add(newTab);
-            //tabControl1.SelectedTab = newTab; // Переключаемся на новую вкладку
-
             // Нижний DataGridView (таблица ошибок)
             DataGridView dataGridView1 = new DataGridView
             {
-                //Dock = DockStyle.Fill,
-                //BackgroundColor = Color.AntiqueWhite,
-                //ReadOnly = true,
-                //AllowUserToAddRows = false,
-                //SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                //ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize,
-                //RowHeadersWidth = 51,
-                //RowTemplate = { Height = 24 }
-
                 BackgroundColor = System.Drawing.Color.AntiqueWhite,
                 ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize,
                 Dock = System.Windows.Forms.DockStyle.Fill,
@@ -279,25 +167,44 @@ namespace Lab1
                 TabIndex = 0
             };
 
+            // Код лексемы
             dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
             {
-                Name = "LineNumber",
-                HeaderText = "№ строки",
+                Name = "TokenCode",
+                HeaderText = "Код лексемы",
                 Width = 100
             });
 
+            // Тип лексемы (ключевое слово, идентификатор, оператор и т. д.)
             dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
             {
-                Name = "ErrorCode",
-                HeaderText = "Код ошибки",
+                Name = "TokenType",
+                HeaderText = "Тип лексемы",
                 Width = 150
             });
 
+            // Сама лексема
             dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
             {
-                Name = "ErrorMessage",
-                HeaderText = "Сообщение об ошибке",
+                Name = "TokenValue",
+                HeaderText = "Лексема",
                 AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+            });
+
+            // Номер строки
+            dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+            {
+                Name = "LineNumber",
+                HeaderText = "Номер строки",
+                Width = 80
+            });
+
+            // Позиция в строке
+            dataGridView1.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn
+            {
+                Name = "Position",
+                HeaderText = "Позиция",
+                Width = 80
             });
 
             // Добавляем элементы в SplitContainer
@@ -395,14 +302,6 @@ namespace Lab1
                 }
             }
         }
-
-        //private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if (tabControl1.SelectedTab != null)
-        //    {
-        //        tabControl1.TabPages.Remove(tabControl1.SelectedTab);
-        //    }
-        //}
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -546,7 +445,6 @@ namespace Lab1
                 }
             }
         }
-
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             копироватьToolStripMenuItem_Click(sender, e);
@@ -621,11 +519,10 @@ namespace Lab1
                 }
             }
         }
-
         private void вызовСправкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Укажите путь к вашему файлу справки
-            string helpFilePath = "C:\\Users\\vfvjx\\source\\repos\\Lab1\\Lab1\\Справка.html"; // Замените на фактический путь к файлу
+            string helpFilePath = "C:\\Users\\vfvjx\\source\\repos\\Lab1\\Lab1\\Справка.html";
 
             try
             {
@@ -657,5 +554,48 @@ namespace Lab1
         {
             оПрограммеToolStripMenuItem_Click(sender, e);
         }
+
+        private void пускToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Получаем активную вкладку
+            var activeTab = tabControl1.SelectedTab;
+
+            // Проверяем, что вкладка содержит SplitContainer
+            var splitContainer = activeTab.Controls.OfType<SplitContainer>().FirstOrDefault();
+            if (splitContainer == null)
+            {
+                MessageBox.Show("Не удалось найти SplitContainer на вкладке.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Находим RichTextBox и DataGridView в соответствующих панелях SplitContainer
+            var richTextBox = splitContainer.Panel1.Controls.OfType<RichTextBox>().FirstOrDefault();
+            var dataGridView = splitContainer.Panel2.Controls.OfType<DataGridView>().FirstOrDefault();
+
+            // Проверяем, что элементы существуют
+            if (richTextBox != null && dataGridView != null)
+            {
+                string text = richTextBox.Text;
+
+                // Создаём экземпляр сканера
+                Scanner scanner = new Scanner();
+
+                // Очищаем DataGridView перед новым анализом
+                dataGridView.Rows.Clear();
+
+                // Анализируем текст
+                scanner.Analyze(text, dataGridView, richTextBox);
+            }
+            else
+            {
+                MessageBox.Show("Не удалось найти необходимые элементы на вкладке.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            пускToolStripMenuItem_Click(sender, e);
+        }
+
     }
 }

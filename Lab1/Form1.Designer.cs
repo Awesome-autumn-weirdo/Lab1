@@ -99,7 +99,7 @@ namespace Lab1
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -294,6 +294,7 @@ namespace Lab1
             this.пускToolStripMenuItem.Name = "пускToolStripMenuItem";
             this.пускToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
             this.пускToolStripMenuItem.Text = "Пуск";
+            this.пускToolStripMenuItem.Click += new System.EventHandler(this.пускToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -336,7 +337,7 @@ namespace Lab1
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 37);
             this.toolStrip1.Stretch = true;
@@ -431,6 +432,7 @@ namespace Lab1
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Size = new System.Drawing.Size(34, 34);
             this.toolStripButton9.Text = "Пуск";
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // toolStripButton10
             // 
@@ -457,10 +459,10 @@ namespace Lab1
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 67);
+            this.tabControl1.Location = new System.Drawing.Point(0, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 383);
+            this.tabControl1.Size = new System.Drawing.Size(800, 388);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -470,7 +472,7 @@ namespace Lab1
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 353);
+            this.tabPage1.Size = new System.Drawing.Size(792, 358);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Новый документ";
             // 
@@ -488,18 +490,19 @@ namespace Lab1
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(786, 347);
-            this.splitContainer1.SplitterDistance = 146;
+            this.splitContainer1.Size = new System.Drawing.Size(786, 352);
+            this.splitContainer1.SplitterDistance = 148;
             this.splitContainer1.TabIndex = 0;
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FloralWhite;
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(786, 146);
-            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Size = new System.Drawing.Size(786, 148);
+            this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // dataGridView1
@@ -511,7 +514,7 @@ namespace Lab1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 197);
+            this.dataGridView1.Size = new System.Drawing.Size(786, 200);
             this.dataGridView1.TabIndex = 0;
             // 
             // Form1
@@ -526,7 +529,7 @@ namespace Lab1
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Compiler";
+            this.Text = "Языковой процессор";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -588,8 +591,8 @@ namespace Lab1
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private RichTextBox richTextBox1;
     }
 }
 
