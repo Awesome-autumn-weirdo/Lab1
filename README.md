@@ -45,7 +45,7 @@ end;
 var c: complex;
 ```
 ### 4. Диаграмма состояний сканера
-![СхемаСканера1](https://github.com/user-attachments/assets/dab9650f-9cf0-4acb-845b-ce4fe04370e4)
+![ТфякСхема1 drawio](https://github.com/user-attachments/assets/108dac6b-35c0-48fd-b560-9c93bd85e558)
 
 ### 5. Тестовые примеры
 ![Тест1](https://github.com/user-attachments/assets/924bcfb9-e93e-44eb-8b78-f18beb851906)
