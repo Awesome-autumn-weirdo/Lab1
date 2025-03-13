@@ -50,10 +50,10 @@ end;
 ```pascal
 var c: complex;
 ```
-### **Диаграмма состояний сканера**
+### 4. Диаграмма состояний сканера
 ![СхемаСканера1](https://github.com/user-attachments/assets/dab9650f-9cf0-4acb-845b-ce4fe04370e4)
 
-### **Тестовые примеры**
+### 5. Тестовые примеры
 ![Тест1](https://github.com/user-attachments/assets/924bcfb9-e93e-44eb-8b78-f18beb851906)
 ![Тест2](https://github.com/user-attachments/assets/f23bd111-aaa1-472f-9872-d973079dca32)
 ![Тест3](https://github.com/user-attachments/assets/74a9550e-6c91-4770-b52a-e846be0800f4)
